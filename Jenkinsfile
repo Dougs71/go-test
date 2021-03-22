@@ -4,7 +4,7 @@ node {
         def app = docker.image('golang:alpine')
         app.pull()
         app.inside {
-            sh 'go build'
+            sh 'echo ${WORKSPACE}'
         }
     }
 }
