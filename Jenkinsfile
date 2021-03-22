@@ -1,6 +1,9 @@
 node {
     stage('Build') {
-        docker.image('golang:alpine').inside {
+        checkout scm
+        def app = docker.image('golang:alpine')
+        app.pull()
+        app.inside {
             sh 'go version'
         }
     }
